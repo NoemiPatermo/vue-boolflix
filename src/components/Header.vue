@@ -40,10 +40,10 @@ export default {
     
      .logo-container{
          display: flex;
-         text-align: center;
-         margin-top: 10px;
+         align-items: center;
+       
          .logo-content{
-             width: 10%;
+             width: 20%;
              img{
                  width: 100%;
              }

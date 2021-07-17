@@ -1,6 +1,8 @@
-body{
+#app{
     color: #fff;
-    background-color: black;
+    background-color:#191919;
+    height: 100vh;
+}
     .logo-container{ 
     
         .finta-nav{
@@ -14,10 +16,11 @@ body{
   .icon-container{
     .icon-content{
         li{
+            margin-top: 10px;
             padding: 15px;
             list-style: none;
             display: inline-block;
         }
     }
   }
-}//such a kind of utility classes for Header
+//such a kind of utility classes for Header
