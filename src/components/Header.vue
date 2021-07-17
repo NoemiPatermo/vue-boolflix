@@ -37,8 +37,7 @@ export default {
 
 <style lang="scss" scoped>
 .header-container {
-    color: #fff;
-    background-color: black;
+    
      .logo-container{
          display: flex;
          text-align: center;
@@ -49,28 +48,14 @@ export default {
                  width: 100%;
              }
          }
-         .finta-nav{
-             li{
-                 list-style: none;
-                 display: inline-block;
-                 padding: 10px;
-             }
-         }
+         
     
     }
     .icon-container{
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        .icon-content{
-            
-            li{
-                padding: 15px;
-                list-style: none;
-                display: inline-block;
-
-            }
-        }
+        
     }
      
         
