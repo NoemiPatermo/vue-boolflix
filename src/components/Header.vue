@@ -19,7 +19,8 @@
 
        <div class="icon-container col-6">
             <div class="icon-content">
-               <li><i class="fas fa-search"></i></li>
+                <input type="text" placeholder="Search" v-model="searchFilm">  <!--trigger evento search-->
+               <button @click="$emit('search', searchFilm)">Choose   <i class="fas fa-search"></i></button>
                 <li>BAMBINI</li>
                 <li><i class="fas fa-bell"></i></li>
             </div>
@@ -31,6 +32,11 @@
 <script>
 export default {
     name: 'Header',
+    data(){
+        return {
+            searchFilm: ''
+        }
+    }
 }
 </script>
 
@@ -41,15 +47,13 @@ export default {
      .logo-container{
          display: flex;
          align-items: center;
-       
+         
          .logo-content{
              width: 20%;
              img{
                  width: 100%;
              }
-         }
-         
-    
+         }   
     }
     .icon-container{
         display: flex;

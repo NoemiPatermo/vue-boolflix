@@ -4,7 +4,11 @@
         <div class="row">
                 <Movies class="movies-section" v-for="results in results" :key= 'results.id'
                 :poster_path="results.poster_path"
-                :title="results.title"/>
+                :title="results.title"
+                :original_title="results.original_title"
+                :original_language="results.original_language"
+                :vote_average="results.vote_average"
+                :inputSearch="inputSearch"/>
         </div>
     </div>
     
@@ -20,8 +24,9 @@ export default {
         Movies   //qui lo dichiari
     }, 
     props: {
-        results: Array
-    }
+        results: Array,
+        inputSearch: String
+    } 
 }
 </script>
 
@@ -29,7 +34,8 @@ export default {
     .main-container{
         padding: 30px ;
         h1{
-            font-weight: bold;
+            font-weight:500;
+            font-size: 30px;
         }
       .row{
           .movies-section{
