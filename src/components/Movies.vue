@@ -2,11 +2,11 @@
     <div class="movies-container ">
         <div class="inner-movies">
             <span @mouseover="hover=true" @mouseleave="hover=false">
-                    <img :src="newImg" alt="`image of ${title}`"/>
+                    <img :src="newImg" alt="img film"/>
             </span>
-                <div class="title">{{title}}</div>
                 <span v-if="hover">
                     <div class="text">
+                         <div class="title">{{title}}</div>
                         <div class="original_title">{{original_title}}</div>  
                         <div class="original_language">{{original_language}}</div>
                         <div class="vote_average">{{vote_average}}</div>
@@ -53,9 +53,9 @@ export default {
            color: #fff;
            position: relative;
            line-height: 20px;
-           height: 200px;
+           
            img{
-               width: 100%;
+               width: 70%;
                &:hover{
                       box-shadow: 1px 1px 1px 1px  #fff;
                       opacity: 0.4;
@@ -63,13 +63,7 @@ export default {
                }
             
            }
-       .title{
-            position: absolute;
-            left: 60%;
-            transform: translate(-60%, -100%);
-            font-size: 20px;
-            padding: 5px;
-        }
+       
         .text{
             position: absolute;
             transform: translate(-20%, -50%);
@@ -81,8 +75,6 @@ export default {
             margin: 5px;
             padding: 5px;
             line-height: 30px;
-        
-
         }   
        }
     }

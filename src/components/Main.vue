@@ -2,12 +2,12 @@
     <div class="main-container">
         <h1>ORIGINALI NETFLIX</h1>
         <div class="row">
-                <Movies class="movies-section" v-for="results in results" :key= 'results.id'
-                :poster_path="results.poster_path"
-                :title="results.title"
-                :original_title="results.original_title"
-                :original_language="results.original_language"
-                :vote_average="results.vote_average"
+                <Movies class="movies-section" v-for="populars in populars" :key= 'populars.id'
+                :poster_path="populars.poster_path"
+                :title="populars.title"
+                :original_title="populars.original_title"
+                :original_language="populars.original_language"
+                :vote_average="populars.vote_average"
                 :inputSearch="inputSearch"/>
         </div>
     </div>
@@ -24,7 +24,7 @@ export default {
         Movies   //qui lo dichiari
     }, 
     props: {
-        results: Array,
+        populars: Array,
         inputSearch: String
     } 
 }
