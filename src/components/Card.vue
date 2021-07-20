@@ -9,7 +9,7 @@
                     <div class="hover-text">
                             <h5>Name: {{title}}</h5>  
                             <h6>Original title: {{original_title}}</h6>
-                                <h6> Language: {{original_language}}</h6>
+                            <h6> Language: <img class="flag" :src="littleFlag" :alt="`image of ${{title}}`"></h6>
                              <h6> Vote: {{vote_average}}</h6>
                     </div> 
                 </span>
@@ -38,12 +38,15 @@ export default {
         
     },
     computed: {
-        imgMovie(){     //completa la parte mancante della foto, indicando il percorso da seguire, 
+        imgMovie(){     //completa la parte mancante della foto, indicando il percorso da seguire,
             if(this.poster_path) {
                 return 'https://image.tmdb.org/t/p/w342/' + this.poster_path;
             } else {
-                return require('../assets/error.jpg') //nel caso escano film senza img
+                return require('../assets/error.jpg') // nel caso manchi img di un film
             }
+        },
+        littleFlag(){
+            return require ('../assets/' + this.original_language + '.jpg');
         }
   },
 
@@ -93,6 +96,10 @@ export default {
             font-size: 40px;
             font-style: oblique;
         }   
+        .flag{
+           width: 35px;
+           border-radius: 50%;
+        }
        }
     }
 </style>
