@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header @search="searchMovie"/>  <!--si è messo in ascolto (listener)-->
-    <Main  :inputSearch="inputSearch"   :populars="filteredArray" /> <!--inviamo i dati al main (filtrati)-->
+    <Main    :popularSeries="filteredArraySeries"  :populars="filteredArray" /> <!--inviamo i dati al main (filtrati)-->
   </div>
 </template>
 
@@ -20,17 +20,22 @@ export default {
        
     return {
       populars: [],
+      popularSeries:[],
       filteredArray: [],
-      inputSearch: '',//qui metto ciò che l'utente digita
+      filteredArraySeries:[]
+
    }
    
-  }, // chiude il data
+  }, 
     created() {  //parte la chiamata api (movie popular [like hompege] )
         axios.get('https://api.themoviedb.org/3/movie/popular?api_key=c2bd2f899fd21dab83976c0c8ef6993a').then((results) =>{
             this.populars = results.data.results;
             this.filteredArray = results.data.results;
-        })
-      this.searchMovie('')
+        });
+        axios.get('https://api.themoviedb.org/3/tv/popular?api_key=c2bd2f899fd21dab83976c0c8ef6993a').then((results) =>{
+            this.popularSeries = results.data.results;
+            this.filteredArraySeries = results.data.results;
+        });
     },
     
    methods:{ 
@@ -40,8 +45,10 @@ export default {
                return;
             }                           // con questa chiamata tu ricerchi e colleghi cosa ha digitato il tuo utente
            axios.get(`https://api.themoviedb.org/3/search/movie?api_key=c2bd2f899fd21dab83976c0c8ef6993a&query=${searchFilm}`).then((results) =>{
-               this.filteredArray = results.data.results;
-               this.inputSearch = searchFilm.trim()
+               this.filteredArray = results.data.results;   
+           });
+           axios.get(`https://api.themoviedb.org/3/search/tv?api_key=c2bd2f899fd21dab83976c0c8ef6993a&query=${searchFilm}`).then((results) =>{
+             this.filteredArraySeries = results.data.results; 
            })
        
    }

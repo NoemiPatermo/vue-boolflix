@@ -7,9 +7,18 @@
                 :title="populars.title"
                 :original_title="populars.original_title"
                 :original_language="populars.original_language"
-                :vote_average="populars.vote_average"
-                :inputSearch="inputSearch"/>
+                :vote_average="populars.vote_average"/>
         </div>
+        <div class="row">
+            <h1>Serie Tv</h1>
+            <Card class="card-section" v-for="series in popularSeries" :key= 'series.id'
+                :poster_path="series.poster_path"
+                :title="series.title"
+                :original_title="series.original_title"
+                :original_language="series.original_language"
+                :vote_average="series.vote_average"/>
+        </div>
+
     </div>
     
 </template>
@@ -25,7 +34,7 @@ export default {
     }, 
     props: {
         populars: Array,
-        inputSearch: String
+        popularSeries: Array
     } 
 }
 </script>
