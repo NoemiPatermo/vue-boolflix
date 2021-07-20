@@ -5,14 +5,14 @@
             <div class="logo-content">
                 <img src="../assets/Netflix-logo.png" alt="logo-Netflix">   
             </div>
-              <div class="finta-nav">
+              <div class="nav">
                     <ul>
-                        <li>Home</li>
-                        <li>Serie Tv</li>
-                        <li>Film</li>
-                        <li>Originali</li>
-                        <li>Aggiunti di recente</li>
-                        <li>La mia lista</li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Serie Tv</a></li>
+                        <li><a href="#">Film</a></li>
+                        <li><a href="#">Originali</a></li>
+                        <li><a href="#">Aggiunti di recente</a></li>
+                        <li><a href="#">La mia lista</a></li>
                     </ul>
                 </div>
        </div>
@@ -21,7 +21,7 @@
             <div class="icon-content">
                 <input type="text" placeholder="Search" v-model="searchFilm">  <!--trigger evento search-->
                <button @click="$emit('search', searchFilm)">Choose   <i class="fas fa-search"></i></button>
-                <li>BAMBINI</li>
+                <li><a href="#">BAMBINI</a></li>
                 <li><i class="fas fa-bell"></i></li>
             </div>
        </div> 

@@ -5,7 +5,11 @@
 }
     .logo-container{ 
     
-        .finta-nav{
+        .nav{
+            a{
+                text-decoration: none;
+                color: #fff;
+            }
             li{
                 list-style: none;
                 display: inline-block;
@@ -15,6 +19,10 @@
     }
   .icon-container{
     .icon-content{
+        a{
+            text-decoration: none;
+            color: #fff;
+        }
         li{
             margin-top: 10px;
             padding: 15px;

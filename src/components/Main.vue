@@ -2,7 +2,7 @@
     <div class="main-container">
         <h1>ORIGINALI NETFLIX</h1>
         <div class="row">
-                <Movies class="movies-section" v-for="populars in populars" :key= 'populars.id'
+                <Card class="card-section" v-for="populars in populars" :key= 'populars.id'
                 :poster_path="populars.poster_path"
                 :title="populars.title"
                 :original_title="populars.original_title"
@@ -15,13 +15,13 @@
 </template>
 
 <script>
-import Movies from './Movies.vue'; //importo il mio componente 
+import Card from './Card.vue'; //importo il mio componente Card
 
 export default {
     name: 'Main',
 
     components: {
-        Movies   //qui lo dichiari
+        Card   //qui lo dichiari
     }, 
     props: {
         populars: Array,
@@ -38,9 +38,9 @@ export default {
             font-size: 30px;
         }
       .row{
-          .movies-section{
-              width: calc(100% / 6);
-              padding: 10px;
+          .card-section{
+              width: calc(100% / 4);
+              padding: 5px;
           }
       }
     }
