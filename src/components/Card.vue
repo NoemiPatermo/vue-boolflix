@@ -5,14 +5,15 @@
 
                 <img :src="imgMovie" /> 
 
-                <span v-if="hover">
+                <div v-if="hover">
                     <div class="hover-text">
-                            <h5>Name: {{title}}</h5>  
-                            <h6>Original title: {{original_title}}</h6>
+                            <h5>Name: {{title}}{{name}}</h5>  
+                            <h6>Original title: {{original_title}}{{original_name}}</h6>
                             <h6> Language: <img class="flag" :src="littleFlag" :alt="`image of ${{title}}`"></h6>
-                             <h6> Vote: {{vote_average}}</h6>
+                      <span><i v-for="n in 5" :key="n" class="fa-star" :class="n <= voteRounded ? 'fas' : 'far' "></i></span> 
+                             
                     </div> 
-                </span>
+                </div>
         </div>
     </div>
     
@@ -27,14 +28,17 @@ export default {
     data(){
         return{
            hover: false, 
+           voteRounded: Math.round(this.vote_average / 2),
         };
     },
-    props:{
+    props:{  // dati che invia il componente padre (main)
         poster_path: String,
         title: String,
         original_title: String,
         original_language: String,
         vote_average: Number,
+        original_name: String,
+        name: String
         
     },
     computed: {
@@ -45,7 +49,7 @@ export default {
                 return require('../assets/error.jpg') // nel caso manchi img di un film
             }
         },
-        littleFlag(){
+        littleFlag(){ //  funzione per le bandierine
             return require ('../assets/' + this.original_language + '.jpg');
         }
   },
@@ -95,7 +99,10 @@ export default {
             line-height: 30px;
             font-size: 40px;
             font-style: oblique;
-        }   
+        }  
+        span{
+            color: yellow;
+        } 
         .flag{
            width: 35px;
            border-radius: 50%;

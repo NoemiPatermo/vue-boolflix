@@ -10,11 +10,11 @@
                 :vote_average="populars.vote_average"/>
         </div>
         <div class="row">
-            <h1>Serie Tv</h1>
+            <h1>Serie Tv</h1>       <!--riuso del componente-->
             <Card class="card-section" v-for="series in popularSeries" :key= 'series.id'
                 :poster_path="series.poster_path"
-                :title="series.title"
-                :original_title="series.original_title"
+                :name="series.name"
+                :original_name="series.original_name"
                 :original_language="series.original_language"
                 :vote_average="series.vote_average"/>
         </div>
@@ -30,7 +30,7 @@ export default {
     name: 'Main',
 
     components: {
-        Card   //qui lo dichiari
+        Card,   //qui lo dichiari
     }, 
     props: {
         populars: Array,
