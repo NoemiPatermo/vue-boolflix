@@ -6,17 +6,16 @@
                 <img :src="imgMovie" /> 
 
                 <div v-if="hover">
-                    <div class="hover-text">
-                            <h5>Name: {{title}}{{name}}</h5>  
+                    <div class="hover-section">
+                            <h4>{{title}}{{name}}</h4>  
+                            <div class="line"/>
                             <h6>Original title: {{original_title}}{{original_name}}</h6>
                             <h6> Language: <img class="flag" :src="littleFlag" :alt="`image of ${{title}}`"></h6>
-                      <span><i v-for="n in 5" :key="n" class="fa-star" :class="n <= voteRounded ? 'fas' : 'far' "></i></span> 
-                             
+                      <span><i v-for="n in 5" :key="n" class="fa-star" :class="n <= voteRounded ? 'fas' : 'far' "></i></span>       
                     </div> 
                 </div>
         </div>
     </div>
-    
 </template>
 
 
@@ -44,10 +43,10 @@ export default {
     computed: {
         imgMovie(){     //completa la parte mancante della foto, indicando il percorso da seguire,
             if(this.poster_path) {
-                return 'https://image.tmdb.org/t/p/w342/' + this.poster_path;
+                return 'https://image.tmdb.org/t/p/w500/' + this.poster_path;
             } else {
                 return require('../assets/error.jpg') // nel caso manchi img di un film
-            }
+            } //il require permette di riscrivere la stringa in modo dinamico
         },
         littleFlag(){ //  funzione per le bandierine
             return require ('../assets/' + this.original_language + '.jpg');
@@ -74,31 +73,38 @@ export default {
                width: 90%;
             .error{
                 img{
-                    width: 90%;
-                    
+                    width: 90%;   
                 }
             }
                &:hover{
-                      box-shadow: 2px 2px 2px 2px  #fff;
+                      box-shadow: 3px 3px 3px 3px  #fff;
                       opacity: 0.2;
                       cursor: pointer;
                }
             
            }
        
-        .hover-text{
+        .hover-section{
             position: absolute;
             transform: translate(-20%, -50%);
             left: 30%;
-            top: 60%;
-            font-size: 28px;
+            top: 80%;   
             font-weight: bold;
             font-style: oblique;
             margin: 5px;
             padding: 5px;
             line-height: 30px;
-            font-size: 40px;
+            font-size: 50px;
             font-style: oblique;
+            h6{
+                font-size: 15px;
+            }
+            .line{
+            width: 30%;
+            height: 4px;
+            margin: 15px auto;
+            background: #fff
+            }
         }  
         span{
             color: yellow;

@@ -18,9 +18,7 @@
                 :original_language="series.original_language"
                 :vote_average="series.vote_average"/>
         </div>
-
     </div>
-    
 </template>
 
 <script>
