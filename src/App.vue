@@ -23,7 +23,7 @@ export default {
       popularSeries:[],
       filteredArray: [],
       filteredArraySeries:[]
-
+     // check= true;
    }
    
   }, 
@@ -37,16 +37,23 @@ export default {
             this.filteredArraySeries = results.data.results;
         });
     },
-    
+    //accorpa tutto ciò che si ripete e lo metti in un method, richiamandolo dove ti serve
    methods:{ 
+   //  callApi(searchFilm){
+     //  axios.get(`https://api.themoviedb.org/3/search/movie?api_key=c2bd2f899fd21dab83976c0c8ef6993a&query=${searchFilm}`).then((results) =>{
+       //  this.filteredArray = results.data.results;
+     //  });
+    // },
        searchMovie(searchFilm){ 
-           if (searchFilm.length == 0) { //check se la stringa è vuota la chiamata non deve partire -> la blocchi col return
+          if (searchFilm.length == 0) { //check se la stringa è vuota la chiamata non deve partire -> la blocchi col return
                this.filteredArray = this.populars;
-               return;
-            }                           // con questa chiamata tu ricerchi e colleghi cosa ha digitato il tuo utente
+              return;
+            } 
+                                // con questa chiamata tu ricerchi e colleghi cosa ha digitato il tuo utente
            axios.get(`https://api.themoviedb.org/3/search/movie?api_key=c2bd2f899fd21dab83976c0c8ef6993a&query=${searchFilm}`).then((results) =>{
-               this.filteredArray = results.data.results;   
+              this.filteredArray = results.data.results;   
            });
+          
            axios.get(`https://api.themoviedb.org/3/search/tv?api_key=c2bd2f899fd21dab83976c0c8ef6993a&query=${searchFilm}`).then((results) =>{
              this.filteredArraySeries = results.data.results; 
            })

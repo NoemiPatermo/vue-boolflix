@@ -1,10 +1,9 @@
 <template>
     <div class="card-container ">
-        <div class="inner-card" @mouseover="hover=true" 
+        <div class="inner-card" 
+            @mouseover="hover=true" 
             @mouseleave="hover=false">
-
                 <img :src="imgMovie" /> 
-
                 <div v-if="hover">
                     <div class="hover-section">
                             <h4>{{title}}{{name}}</h4>  
@@ -80,15 +79,14 @@ export default {
                       box-shadow: 3px 3px 3px 3px  #fff;
                       opacity: 0.2;
                       cursor: pointer;
-               }
-            
+               }    
            }
        
         .hover-section{
             position: absolute;
             transform: translate(-20%, -50%);
             left: 30%;
-            top: 80%;   
+            top: 70%;   
             font-weight: bold;
             font-style: oblique;
             margin: 5px;
